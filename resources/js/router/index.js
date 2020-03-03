@@ -22,6 +22,7 @@ import nestedRoutes from './modules/nested';
 import errorRoutes from './modules/error';
 import excelRoutes from './modules/excel';
 import permissionRoutes from './modules/permission';
+import toolsRoutes from './modules/tools';
 
 /**
  * Sub-menu only appear when children.length>=1
@@ -214,19 +215,22 @@ export const asyncRoutes = [
   //     },
   //   ],
   // },
-  {
-    path: '/tools',
-    component: Layout,
-    meta: { permissions: ['view menu tools'] },
-    children: [
-      {
-        path: 'tools',
-        component: () => import('@/views/tools'),
-        name: 'tools',
-        meta: { title: 'Tools', icon: 'tree' },
-      },
-    ],
-  },
+  toolsRoutes,
+  // {
+  //   path: '/tools',
+  //   component: Layout,
+  //   redirect: '/tools',
+  //   alwaysShow: true,
+  //   meta: { title: 'Tools', icon: 'tree', permissions: ['view menu zip'] },
+  //   children: [
+  //     {
+  //       path: 'tools',
+  //       component: () => import('@/views/tools'),
+  //       name: 'Tools',
+  //       meta: { title: 'tools' },
+  //     },
+  //   ],
+  // },
   { path: '*', redirect: '/404', hidden: true },
 ];
 

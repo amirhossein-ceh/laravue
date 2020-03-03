@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use \App\Laravue\Faker;
 use \App\Laravue\JsonResponse;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,9 +22,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('view-cache',function (){
-    \Illuminate\Support\Facades\Artisan::call('view:cache');
-    return response(['text' => 'view\'s cached success fully !'],200);
+   $respo =  Artisan::call('view:cache');
+    return $respo == 0 ? response(['text' => 'view\'s cached success fully !'], 200) : response(['text' => 'someThing went wrong !  please report this'], 200);
 });
+
+Route::get('clear-cache',function (){
+    $respo =  Artisan::call('cache:clear');
+    return $respo == 0 ? response(['text' => 'Application cache cleared success fully !'], 200) : response(['text' => 'someThing went wrong !  please report this'], 200);
+});
+
 
 Route::group(['middleware' => 'api'], function () {
     Route::post('auth/login', 'AuthController@login');
