@@ -216,21 +216,6 @@ export const asyncRoutes = [
   //   ],
   // },
   toolsRoutes,
-  // {
-  //   path: '/tools',
-  //   component: Layout,
-  //   redirect: '/tools',
-  //   alwaysShow: true,
-  //   meta: { title: 'Tools', icon: 'tree', permissions: ['view menu zip'] },
-  //   children: [
-  //     {
-  //       path: 'tools',
-  //       component: () => import('@/views/tools'),
-  //       name: 'Tools',
-  //       meta: { title: 'tools' },
-  //     },
-  //   ],
-  // },
   { path: '*', redirect: '/404', hidden: true },
 ];
 
