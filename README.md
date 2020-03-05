@@ -40,7 +40,7 @@ Documentation: [https://doc.laravue.dev](https://doc.laravue.dev)
 
 ```bash
 # Clone the project and run composer
-composer create-project tuandm/laravue
+composer create-project amirhossein-ceh/laravue
 cd laravue
 
 # Migration and DB seeder (after changing your DB settings in .env)
